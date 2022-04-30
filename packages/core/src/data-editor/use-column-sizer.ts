@@ -133,7 +133,7 @@ export function useColumnSizer(
             }
             sizes.push(ctx.measureText(c.title).width + 16 + (c.icon === undefined ? 0 : 28));
             const average = sizes.reduce((a, b) => a + b) / sizes.length;
-            const biggest = sizes.reduce((a, acc) => (a > average * 2 ? acc : Math.max(acc, a)));
+            const biggest = sizes.reduce((a, acc) => (a > average * 2 ? a : Math.max(acc, a)));
 
             const final = Math.max(minColumnWidth, Math.min(maxColumnWidth, Math.ceil(biggest)));
             memoMap.current[c.id] = final;
